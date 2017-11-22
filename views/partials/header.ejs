@@ -1,0 +1,5 @@
+<% if (req.isAuthenticated()) { %>
+     <p>You are logged in <%= req.user.username %></p>
+<% }  else { %>
+     <p>You are not logged in</p>
+    <% } %>
