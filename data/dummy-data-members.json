@@ -1,0 +1,142 @@
+[
+  {
+    "_id": "5a175af6dba55d6b041d9ead",
+    "name": "Terrie",
+    "surname": "Mccall",
+    "email": "terriemccall@portico.com",
+    "picture": "http://placehold.it/400x200",
+    "bio": "Dolor excepteur ex veniam eu labore pariatur Lorem anim reprehenderit. Officia fugiat pariatur dolore ea consequat sunt anim culpa mollit do Lorem irure velit do.",
+    "stack": [
+      "node.js",
+      "mongo",
+      "react"
+    ],
+    "fcc_recent": "Build a Roguelike Dungeon Crawler Game Incomplete",
+    "fcc_forum_stats": "newbie",
+    "socials": {
+      "fcc": "youngwaller@zillacom.com",
+      "github": "terryromero@manglo.com",
+      "twitter": "beckchen@techtrix.com"
+    }
+  },
+  {
+    "_id": "5a175af6aeb7bd9454eb5949",
+    "name": "Wynn",
+    "surname": "Blake",
+    "email": "wynnblake@techtrix.com",
+    "picture": "http://placehold.it/400x200",
+    "bio": "Magna aliqua id duis do tempor occaecat esse ullamco magna enim elit enim aliquip. Aliquip sit fugiat Lorem eu exercitation velit nulla consequat qui irure mollit consequat.",
+    "stack": [
+      "node.js",
+      "mongo",
+      "react"
+    ],
+    "fcc_recent": "Show the Local Weather Complete",
+    "fcc_forum_stats": "newbie",
+    "socials": {
+      "fcc": "alexandrabrowning@soprano.com",
+      "github": "mccallgardner@intrawear.com",
+      "twitter": "travisroberson@zanilla.com"
+    }
+  },
+  {
+    "_id": "5a175af613d4b128fa11216f",
+    "name": "Amelia",
+    "surname": "Frank",
+    "email": "ameliafrank@zanilla.com",
+    "picture": "http://placehold.it/400x200",
+    "bio": "Ipsum et dolore magna ullamco Lorem labore. Dolor irure cupidatat deserunt duis aliqua sunt cillum.",
+    "stack": [
+      "python",
+      "mysql",
+      "bootstrap"
+    ],
+    "fcc_recent": "Build a Roguelike Dungeon Crawler Game Incomplete",
+    "fcc_forum_stats": "newbie",
+    "socials": {
+      "fcc": "almanewton@neocent.com",
+      "github": "magdalenanelson@moltonic.com",
+      "twitter": "fordhahn@plexia.com"
+    }
+  },
+  {
+    "_id": "5a175af656173e0e881f78ac",
+    "name": "Barbara",
+    "surname": "Lowery",
+    "email": "barbaralowery@plexia.com",
+    "picture": "http://placehold.it/400x200",
+    "bio": "Tempor exercitation incididunt irure nulla nostrud minim et incididunt mollit nisi non enim. Ullamco labore in proident qui.",
+    "stack": [
+      "node.js",
+      "PostgreSQL",
+      "angular"
+    ],
+    "fcc_recent": "Build a Random Quote Machine Complete ",
+    "fcc_forum_stats": "power user",
+    "socials": {
+      "fcc": "sharleneacevedo@ramjob.com",
+      "github": "nicholsbentley@tubesys.com",
+      "twitter": "reneemays@barkarama.com"
+    }
+  },
+  {
+    "_id": "5a175af695bcbb532baaafb0",
+    "name": "Nieves",
+    "surname": "Olson",
+    "email": "nievesolson@barkarama.com",
+    "picture": "http://placehold.it/400x200",
+    "bio": "Minim anim reprehenderit fugiat eu aute sunt pariatur culpa Lorem veniam minim enim non. Nulla irure magna in est sint do aliqua ea.",
+    "stack": [
+      "php",
+      "mongo",
+      "react"
+    ],
+    "fcc_recent": "Build a Roguelike Dungeon Crawler Game Incomplete",
+    "fcc_forum_stats": "power user",
+    "socials": {
+      "fcc": "gildasykes@suretech.com",
+      "github": "dionnegibson@rodeocean.com",
+      "twitter": "tinaowens@norsup.com"
+    }
+  },
+  {
+    "_id": "5a175af64d5e5cc887d882e9",
+    "name": "Marianne",
+    "surname": "Stark",
+    "email": "mariannestark@norsup.com",
+    "picture": "http://placehold.it/400x200",
+    "bio": "Lorem sit incididunt exercitation qui commodo proident anim ad. Ullamco culpa fugiat consequat cupidatat in exercitation ex ea eiusmod.",
+    "stack": [
+      "node.js",
+      "mongo",
+      "angular"
+    ],
+    "fcc_recent": "Build a Roguelike Dungeon Crawler Game Incomplete",
+    "fcc_forum_stats": "power user",
+    "socials": {
+      "fcc": "elsadelacruz@sequitur.com",
+      "github": "cardenasreilly@zoinage.com",
+      "twitter": "salazargoff@skinserve.com"
+    }
+  },
+  {
+    "_id": "5a175af6fe0ccedaf6873dd1",
+    "name": "Cox",
+    "surname": "Mathis",
+    "email": "coxmathis@skinserve.com",
+    "picture": "http://placehold.it/400x200",
+    "bio": "Ea anim consectetur nulla aliqua adipisicing sit occaecat quis amet ea consectetur cupidatat. Anim nulla consectetur irure ea exercitation qui occaecat voluptate nisi proident.",
+    "stack": [
+      "php",
+      "mysql",
+      "bootstrap"
+    ],
+    "fcc_recent": "Show the Local Weather Complete",
+    "fcc_forum_stats": "newbie",
+    "socials": {
+      "fcc": "floresbridges@ginkogene.com",
+      "github": "twilamichael@realysis.com",
+      "twitter": "gwenbeck@boilicon.com"
+    }
+  }
+]

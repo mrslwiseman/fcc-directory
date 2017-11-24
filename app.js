@@ -1,12 +1,15 @@
-let express               = require('express'),
-    mongoose              = require('mongoose'),
-    passport              = require('passport'),
-    bodyParser            = require('body-parser'),
-    LocalStrategy         = require('passport-local'),
-    passportLocalMongoose = require('passport-local-mongoose'),
-    User                  = require('./models/user'),
-    app                   = express();
+const express             = require('express'),
+      mongoose              = require('mongoose'),
+      passport              = require('passport'),
+      bodyParser            = require('body-parser'),
+      LocalStrategy         = require('passport-local'),
+      passportLocalMongoose = require('passport-local-mongoose'),
+      User                  = require('./models/user'),
+      fs                    = require('fs')
+      members               = JSON.parse(fs.readFileSync(__dirname + '/data/dummy-data-members.json', 'utf-8')), // remove this when hoooked up to db
+      app                   = express();
 
+      
 app.set("view engine", "ejs");
 app.set("views", __dirname + '/views')
 
