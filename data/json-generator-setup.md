@@ -9,7 +9,7 @@ https://www.json-generator.com/
     name: '{{firstName([random(["male"],["female"])])}}',
     surname: '{{surname()}}',
 	email: '{{email()}}',
-    picture: 'http://lorempixel.com/400/200/people/',
+    picture: 'http://via.placeholder.com/300x200',
     bio: '{{lorem([2])}}',
      stack: [
       '{{random(["ruby"],["python"], ["php"], ["node.js"])}}', 
@@ -22,6 +22,10 @@ https://www.json-generator.com/
       fcc: '{{email([random])}}',
       github: '{{email([random])}}',
       twitter: '{{email([random])}}'
+    },
+    meetup: {
+      attended:  '{{integer()}}',
+      last_seen: '{{date()}}'
     }
   }
 ]
