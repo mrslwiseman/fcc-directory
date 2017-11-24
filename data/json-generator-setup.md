@@ -2,14 +2,20 @@ https://www.json-generator.com/
 
 ## Use these methods to generate dummy json data file
 
-```[
+```
+[
   '{{repeat(5, 7)}}',
   {
     _id: '{{objectId()}}',
     name: '{{firstName([random(["male"],["female"])])}}',
     surname: '{{surname()}}',
+    location: '{{random(["Melbourne City"], ["Fitzroy"], ["Prahran"], ["St Kilda"], ["Hawthorn"])}}',
 	email: '{{email()}}',
+<<<<<<< HEAD
     picture: 'http://via.placeholder.com/300x200',
+=======
+    picture: 'http://placehold.it/400x200',
+>>>>>>> 1fb551a93235da91c7e5d4c69e391abdd0ee3f10
     bio: '{{lorem([2])}}',
      stack: [
       '{{random(["ruby"],["python"], ["php"], ["node.js"])}}', 
