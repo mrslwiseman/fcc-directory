@@ -1,20 +1,26 @@
-let express               = require('express'),
-    mongoose              = require('mongoose'),
-    passport              = require('passport'),
-    bodyParser            = require('body-parser'),
-    LocalStrategy         = require('passport-local'),
-    passportLocalMongoose = require('passport-local-mongoose'),
-    User                  = require('./models/user'),
-    app                   = express();
+const express             = require('express'),
+      mongoose              = require('mongoose'),
+      passport              = require('passport'),
+      bodyParser            = require('body-parser'),
+      LocalStrategy         = require('passport-local'),
+      passportLocalMongoose = require('passport-local-mongoose'),
+      User                  = require('./models/user'),
+      fs                    = require('fs'),
+      path                  = require('path'),
+      indexRoute            = require('./routes/index'),
+      routes                = require('./routes/index'),
+      app                   = express();
 
 app.set("view engine", "ejs");
 app.set("views", __dirname + '/views')
+app.use(express.static(path.join(__dirname, 'public')));
+app.use('/', routes);
 
-app.use(require("express-session")({
-  secret: process.env.SECRET,
-  resave: false,
-  saveUninitialized: false
-}));
+// app.use(require("express-session")({
+//   secret: process.env.SECRET,
+//   resave: false,
+//   saveUninitialized: false
+// }));
 
 app.use(bodyParser.urlencoded({extended:true}))
 passport.use(new LocalStrategy(User.authenticate()));
@@ -23,16 +29,20 @@ passport.deserializeUser(User.deserializeUser());
 app.use(passport.initialize());
 app.use(passport.session());
 
-// ROUTES
+// RESTful ROUTES
+// index route
+// app.use("/", indexRoute);
+// app.use("/members", membersRoute);
 
-app.get("/", (req,res) => {
 
-res.render("home", {req:req});
-})
+// app.get("/members", (req,res) => {
+//   res.render("index", {req: req, members: members})
+// })
 
 app.get("/dashboard", isLoggedIn, (req,res) => {
   res.render("dashboard", {req:req})
 })
+
 
 // AUTH ROUTES
 

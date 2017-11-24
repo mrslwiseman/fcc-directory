@@ -1,0 +1,21 @@
+li {
+  list-style: none;
+}
+
+.userAvatar {
+  display:none;
+}
+
+.loggedIn {
+  display:inline-block;
+  color: red;
+  font-size: .5em;
+}
+
+.flex {
+    display: flex; 
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
