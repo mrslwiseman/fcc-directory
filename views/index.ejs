@@ -1,0 +1,36 @@
+<style>
+
+.userAvatar {
+  display:none;
+}
+
+.loggedIn {
+  display:inline-block;
+  color: red;
+  font-size: .5em;
+}
+
+</style>
+<% include partials/header %>
+
+<h1>Welcome to Freecodecamp Melbourne Directory</h1>
+<li><a href="/register">Create Account</a></li>
+<li><a href="/login">Login</a></li>
+<li><a href="/logout">Logout</a></li>
+
+<% if(members) { %>
+
+  <% for (member in members) { %>
+    <div>
+      <img src="<%= members[member].picture %>" />
+      <h3><%= members[member].name %> <%= members[member].surname %></h3>
+      <a href="mailto://<%= members[member].email %>">Email</a>
+    </div>
+  <% } %>
+
+<% } %>
+
+<% include partials/footer %>
+
+
+
