@@ -5,19 +5,19 @@ const express             = require('express'),
       LocalStrategy         = require('passport-local'),
       passportLocalMongoose = require('passport-local-mongoose'),
       User                  = require('./models/user'),
-      fs                    = require('fs')
+      fs                    = require('fs'),
       members               = JSON.parse(fs.readFileSync(__dirname + '/data/dummy-data-members.json', 'utf-8')), // remove this when hoooked up to db
       app                   = express();
 
-      
 app.set("view engine", "ejs");
 app.set("views", __dirname + '/views')
 
-app.use(require("express-session")({
-  secret: process.env.SECRET,
-  resave: false,
-  saveUninitialized: false
-}));
+
+// app.use(require("express-session")({
+//   secret: process.env.SECRET,
+//   resave: false,
+//   saveUninitialized: false
+// }));
 
 app.use(bodyParser.urlencoded({extended:true}))
 passport.use(new LocalStrategy(User.authenticate()));
