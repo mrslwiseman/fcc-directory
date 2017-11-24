@@ -1,142 +1,128 @@
 [
   {
-    "_id": "5a175af6dba55d6b041d9ead",
-    "name": "Terrie",
-    "surname": "Mccall",
-    "email": "terriemccall@portico.com",
+    "_id": "5a17795b49750cea9bf6ec24",
+    "name": "Weiss",
+    "surname": "Turner",
+    "location": "Prahran",
+    "email": "weissturner@boilicon.com",
     "picture": "http://placehold.it/400x200",
-    "bio": "Dolor excepteur ex veniam eu labore pariatur Lorem anim reprehenderit. Officia fugiat pariatur dolore ea consequat sunt anim culpa mollit do Lorem irure velit do.",
-    "stack": [
-      "node.js",
-      "mongo",
-      "react"
-    ],
-    "fcc_recent": "Build a Roguelike Dungeon Crawler Game Incomplete",
-    "fcc_forum_stats": "newbie",
-    "socials": {
-      "fcc": "youngwaller@zillacom.com",
-      "github": "terryromero@manglo.com",
-      "twitter": "beckchen@techtrix.com"
-    }
-  },
-  {
-    "_id": "5a175af6aeb7bd9454eb5949",
-    "name": "Wynn",
-    "surname": "Blake",
-    "email": "wynnblake@techtrix.com",
-    "picture": "http://placehold.it/400x200",
-    "bio": "Magna aliqua id duis do tempor occaecat esse ullamco magna enim elit enim aliquip. Aliquip sit fugiat Lorem eu exercitation velit nulla consequat qui irure mollit consequat.",
-    "stack": [
-      "node.js",
-      "mongo",
-      "react"
-    ],
-    "fcc_recent": "Show the Local Weather Complete",
-    "fcc_forum_stats": "newbie",
-    "socials": {
-      "fcc": "alexandrabrowning@soprano.com",
-      "github": "mccallgardner@intrawear.com",
-      "twitter": "travisroberson@zanilla.com"
-    }
-  },
-  {
-    "_id": "5a175af613d4b128fa11216f",
-    "name": "Amelia",
-    "surname": "Frank",
-    "email": "ameliafrank@zanilla.com",
-    "picture": "http://placehold.it/400x200",
-    "bio": "Ipsum et dolore magna ullamco Lorem labore. Dolor irure cupidatat deserunt duis aliqua sunt cillum.",
+    "bio": "Nulla consequat duis esse elit duis fugiat sint eiusmod labore fugiat reprehenderit ullamco et. Ex irure do ullamco sint dolore commodo.",
     "stack": [
       "python",
-      "mysql",
-      "bootstrap"
+      "mongo",
+      "css"
+    ],
+    "fcc_recent": "Build a Roguelike Dungeon Crawler Game Incomplete",
+    "fcc_forum_stats": "power user",
+    "socials": {
+      "fcc": "jacquelynorr@netplode.com",
+      "github": "ebonypitts@myopium.com",
+      "twitter": "snidermcpherson@suremax.com"
+    }
+  },
+  {
+    "_id": "5a17795b732cd221149ebf9b",
+    "name": "Knight",
+    "surname": "Battle",
+    "location": "Prahran",
+    "email": "knightbattle@suremax.com",
+    "picture": "http://placehold.it/400x200",
+    "bio": "Nostrud consequat id sunt qui velit eu est ullamco ex elit. Consequat cupidatat proident incididunt excepteur enim Lorem do occaecat irure.",
+    "stack": [
+      "node.js",
+      "mongo",
+      "css"
     ],
     "fcc_recent": "Build a Roguelike Dungeon Crawler Game Incomplete",
     "fcc_forum_stats": "newbie",
     "socials": {
-      "fcc": "almanewton@neocent.com",
-      "github": "magdalenanelson@moltonic.com",
-      "twitter": "fordhahn@plexia.com"
+      "fcc": "ashleewolfe@overfork.com",
+      "github": "haleblackburn@apexia.com",
+      "twitter": "benjaminsanford@primordia.com"
     }
   },
   {
-    "_id": "5a175af656173e0e881f78ac",
-    "name": "Barbara",
-    "surname": "Lowery",
-    "email": "barbaralowery@plexia.com",
+    "_id": "5a17795b436c48308cda77a4",
+    "name": "Rae",
+    "surname": "Gay",
+    "location": "Prahran",
+    "email": "raegay@primordia.com",
     "picture": "http://placehold.it/400x200",
-    "bio": "Tempor exercitation incididunt irure nulla nostrud minim et incididunt mollit nisi non enim. Ullamco labore in proident qui.",
+    "bio": "Reprehenderit anim consequat exercitation occaecat esse. Mollit sunt eiusmod culpa consequat exercitation adipisicing culpa magna.",
+    "stack": [
+      "php",
+      "PostgreSQL",
+      "css"
+    ],
+    "fcc_recent": "Build a Simon Game",
+    "fcc_forum_stats": "power user",
+    "socials": {
+      "fcc": "selenaaguirre@insurety.com",
+      "github": "suzannediaz@zomboid.com",
+      "twitter": "fischerhowell@medicroix.com"
+    }
+  },
+  {
+    "_id": "5a17795b042a9c5a526ae9b4",
+    "name": "Lindsay",
+    "surname": "Gordon",
+    "location": "Fitzroy",
+    "email": "lindsaygordon@medicroix.com",
+    "picture": "http://placehold.it/400x200",
+    "bio": "Proident ullamco tempor magna laboris ex officia nulla reprehenderit deserunt magna. Anim quis tempor aute culpa Lorem deserunt duis eiusmod.",
     "stack": [
       "node.js",
       "PostgreSQL",
-      "angular"
-    ],
-    "fcc_recent": "Build a Random Quote Machine Complete ",
-    "fcc_forum_stats": "power user",
-    "socials": {
-      "fcc": "sharleneacevedo@ramjob.com",
-      "github": "nicholsbentley@tubesys.com",
-      "twitter": "reneemays@barkarama.com"
-    }
-  },
-  {
-    "_id": "5a175af695bcbb532baaafb0",
-    "name": "Nieves",
-    "surname": "Olson",
-    "email": "nievesolson@barkarama.com",
-    "picture": "http://placehold.it/400x200",
-    "bio": "Minim anim reprehenderit fugiat eu aute sunt pariatur culpa Lorem veniam minim enim non. Nulla irure magna in est sint do aliqua ea.",
-    "stack": [
-      "php",
-      "mongo",
-      "react"
-    ],
-    "fcc_recent": "Build a Roguelike Dungeon Crawler Game Incomplete",
-    "fcc_forum_stats": "power user",
-    "socials": {
-      "fcc": "gildasykes@suretech.com",
-      "github": "dionnegibson@rodeocean.com",
-      "twitter": "tinaowens@norsup.com"
-    }
-  },
-  {
-    "_id": "5a175af64d5e5cc887d882e9",
-    "name": "Marianne",
-    "surname": "Stark",
-    "email": "mariannestark@norsup.com",
-    "picture": "http://placehold.it/400x200",
-    "bio": "Lorem sit incididunt exercitation qui commodo proident anim ad. Ullamco culpa fugiat consequat cupidatat in exercitation ex ea eiusmod.",
-    "stack": [
-      "node.js",
-      "mongo",
-      "angular"
-    ],
-    "fcc_recent": "Build a Roguelike Dungeon Crawler Game Incomplete",
-    "fcc_forum_stats": "power user",
-    "socials": {
-      "fcc": "elsadelacruz@sequitur.com",
-      "github": "cardenasreilly@zoinage.com",
-      "twitter": "salazargoff@skinserve.com"
-    }
-  },
-  {
-    "_id": "5a175af6fe0ccedaf6873dd1",
-    "name": "Cox",
-    "surname": "Mathis",
-    "email": "coxmathis@skinserve.com",
-    "picture": "http://placehold.it/400x200",
-    "bio": "Ea anim consectetur nulla aliqua adipisicing sit occaecat quis amet ea consectetur cupidatat. Anim nulla consectetur irure ea exercitation qui occaecat voluptate nisi proident.",
-    "stack": [
-      "php",
-      "mysql",
       "bootstrap"
     ],
-    "fcc_recent": "Show the Local Weather Complete",
+    "fcc_recent": "Build a Simon Game",
     "fcc_forum_stats": "newbie",
     "socials": {
-      "fcc": "floresbridges@ginkogene.com",
-      "github": "twilamichael@realysis.com",
-      "twitter": "gwenbeck@boilicon.com"
+      "fcc": "juanamcknight@ohmnet.com",
+      "github": "karynrosario@zboo.com",
+      "twitter": "bergercote@thredz.com"
+    }
+  },
+  {
+    "_id": "5a17795bcc347ba59220a7b0",
+    "name": "Celeste",
+    "surname": "Blair",
+    "location": "Fitzroy",
+    "email": "celesteblair@thredz.com",
+    "picture": "http://placehold.it/400x200",
+    "bio": "Aliqua commodo ipsum sit est ullamco incididunt voluptate sit anim ad Lorem. Cillum eu adipisicing cillum ea occaecat sit elit sit incididunt velit voluptate.",
+    "stack": [
+      "node.js",
+      "PostgreSQL",
+      "bootstrap"
+    ],
+    "fcc_recent": "Build a Roguelike Dungeon Crawler Game Incomplete",
+    "fcc_forum_stats": "power user",
+    "socials": {
+      "fcc": "teresarose@opticom.com",
+      "github": "josefinalynch@plasmosis.com",
+      "twitter": "patrickgray@magnemo.com"
+    }
+  },
+  {
+    "_id": "5a17795bc72057550878c0f7",
+    "name": "Lou",
+    "surname": "Petty",
+    "location": "Fitzroy",
+    "email": "loupetty@magnemo.com",
+    "picture": "http://placehold.it/400x200",
+    "bio": "Id enim duis ut consectetur id. Mollit amet laborum sit ea culpa enim culpa tempor sit.",
+    "stack": [
+      "php",
+      "PostgreSQL",
+      "css"
+    ],
+    "fcc_recent": "Show the Local Weather Complete",
+    "fcc_forum_stats": "power user",
+    "socials": {
+      "fcc": "latashahill@jetsilk.com",
+      "github": "hopkinssaunders@keengen.com",
+      "twitter": "fernbaird@portica.com"
     }
   }
 ]
