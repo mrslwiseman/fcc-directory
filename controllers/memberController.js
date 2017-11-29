@@ -8,5 +8,6 @@ exports.homePage = (req,res) => {
   }
 
 exports.members = (req,res) => {
-    res.render("index", {members: membersData, req:req})
+   // res.render("index", {members: membersData, req:req})
+   res.json(membersData)
   }
