@@ -12,10 +12,10 @@
       "PostgreSQL",
       "react"
     ],
-    "fcc_recent": "Build a Roguelike Dungeon Crawler Game Incomplete",
+    "fcc_recent": "Build a Roguelike Dungeon Crawler Game",
     "fcc_forum_stats": "power user",
     "socials": {
-      "fcc": "juanitacarrillo@ovation.com",
+      "fcc": "http://www.youtube.com",
       "github": "livingstonlindsey@zanilla.com",
       "twitter": "janettewalsh@dognost.com"
     },
@@ -37,7 +37,7 @@
       "PostgreSQL",
       "css"
     ],
-    "fcc_recent": "Build a Roguelike Dungeon Crawler Game Incomplete",
+    "fcc_recent": "Build a Roguelike Dungeon Crawler Game",
     "fcc_forum_stats": "power user",
     "socials": {
       "fcc": "socorrotorres@sealoud.com",
@@ -62,7 +62,7 @@
       "mysql",
       "css"
     ],
-    "fcc_recent": "Build a Roguelike Dungeon Crawler Game Incomplete",
+    "fcc_recent": "Build a Roguelike Dungeon Crawler Game",
     "fcc_forum_stats": "power user",
     "socials": {
       "fcc": "holdenlivingston@acium.com",
@@ -112,7 +112,7 @@
       "mysql",
       "bootstrap"
     ],
-    "fcc_recent": "Build a Roguelike Dungeon Crawler Game Incomplete",
+    "fcc_recent": "Build a Roguelike Dungeon Crawler Game",
     "fcc_forum_stats": "power user",
     "socials": {
       "fcc": "marilyncleveland@magneato.com",
@@ -130,7 +130,7 @@
     "surname": "Oconnor",
     "location": "Prahran",
     "email": "minervaoconnor@everest.com",
-    "picture": "http://placehold.it/400x200",
+    "picture": "images/fcc-loading.svg",
     "bio": "Excepteur aliquip sint exercitation ad nostrud proident aliquip aute occaecat. Nostrud duis elit anim consectetur anim cupidatat officia sit.",
     "stack": [
       "php",
