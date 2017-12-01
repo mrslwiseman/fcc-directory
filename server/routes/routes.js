@@ -1,10 +1,14 @@
 const express = require('express');
 const router = express.Router();
+const path = require('path')
 const memberController = require('../controllers/memberController')
 
-router.get("/", memberController.homePage)
+// /members
 router.get("/members", memberController.members)
 
+router.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+  });
 // New route
 // app.get /members/new
 // render new member signup form
