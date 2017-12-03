@@ -1,102 +1,78 @@
 import React, { Component } from 'react';
+import { Navbar, Button } from 'react-bootstrap';
 import './App.css';
 
-const MemberMeetupComponent = ({props}) => (
-  <div>
-    <h4>Meetup.com info</h4>
-    <div>Meetups attended: {props.attended}</div>
-    <div>Last seen: {props.last_seen}</div>
-  </div>
-)
-
-const MemberStackComponent = ({stack}) => (
-  <div>
-    {stack.map(stackItem => <li>{stackItem}</li>)}
-  </div>
-)
-
-const MemberComponent = ({props}) => (
-  <div>
-    <img alt={props.name + ' ' + props.surname + '\'s profile picture'} src={props.picture} />
-    <div>
-      <h2>{props.name} {props.surname}</h2>
-      {props.location}
-      <p>{props.bio}</p>
-      <ul>
-        <MemberStackComponent stack={props.stack} />
-      </ul>
-    </div>
-
-    <div>
-      <h4>Free Code Camp Details:</h4>
-      <div>Recent Project: {props.fcc_recent}</div>
-      <div>FCC Forum Stats: {props.fcc_forum_stats}</div>
-      <MemberMeetupComponent props={props.meetup} />
-    </div>
-
-    <div>
-      <h3>Connect:</h3>
-      <a href={props.socials.fcc} target="_blank">Free Code Camp</a>
-      <span><a href={`mailto://${props.email}`}>Email</a></span>
-      <span><a href={props.socials.github} target="_blank">Github</a></span>
-      <span><a href={props.socials.twitter} target="_blank">Twitter</a></span>
-    </div>
-  </div>
-)
-
-const MemberListComponent = ({members}) => (
-  <div>
-   { members.map(member => <MemberComponent key={member._id} props={member} /> )}
-  </div>
-)
-
 class App extends Component {
-  constructor(props){
-    super(props);
-    // this has to have initial state otherwise will have MemberList render error
-    // how can i render after /members fetch has come back?
-    this.state = {members: [
-      {
-        "_id": "Loading...",
-        "name": "Loading...",
-        "surname": "Loading...",
-        "location": "Loading...",
-        "email": "Loading...",
-        "picture": "images/fcc-loading.svg",
-        "bio": "Loading...",
-        "stack": [
-          "Loading..."
-        ],
-        "fcc_recent": "Loading...",
-        "fcc_forum_stats": "Loading...",
-        "socials": {
-          "fcc": "Loading...",
-          "github": "Loading...",
-          "twitter": "Loading..."
-        },
-        "meetup": {
-          "attended": "Loading...",
-          "last_seen": "Loading..."
-        }
-      }
-    ]}
+  goTo(route) {
+    this.props.history.replace(`/${route}`)
   }
 
-  componentDidMount() {
-    fetch('/members')
-      .then(res => res.json())
-      .then(obj => this.setState( {"members": obj} ));
+  login() {
+    this.props.auth.login();
   }
 
-  componentDidUpdate(){
-    console.log(this.state)
+  logout() {
+    this.props.auth.logout();
   }
-
 
   render() {
+    const { isAuthenticated } = this.props.auth;
+
     return (
-      <MemberListComponent members={this.state.members} />
-    )
+      <div>
+        <Navbar fluid>
+          <Navbar.Header>
+            <Navbar.Brand>
+              <a href="#">FCC Melbourne Directory</a>
+            </Navbar.Brand>
+            <Button
+              bsStyle="primary"
+              className="btn-margin"
+              onClick={this.goTo.bind(this, 'home')}
+            >
+              Home
+            </Button>
+            {
+              !isAuthenticated() && (
+                  <Button
+                    bsStyle="primary"
+                    className="btn-margin"
+                    onClick={this.login.bind(this)}
+                  >
+                    Log In
+                  </Button>
+                )
+            }
+            {
+              isAuthenticated() && (
+                  <Button
+                    bsStyle="primary"
+                    className="btn-margin"
+                    onClick={this.goTo.bind(this, 'profile')}
+                  >
+                    Profile
+                  </Button>
+                )
+            }
+            {
+              isAuthenticated() && (
+                  <Button
+                    bsStyle="primary"
+                    className="btn-margin"
+                    onClick={this.logout.bind(this)}
+                  >
+                    Log Out
+                  </Button>
+                )
+            }
+          </Navbar.Header>
+        </Navbar>
+        <div className="container">
+          {this.props.children}
+        </div>
+      </div>
+    );
   }
 }
+
 export default App;
