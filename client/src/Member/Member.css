@@ -1,0 +1,4 @@
+.memberCardRow {
+    display: flex;
+    flex-wrap: wrap;
+}
