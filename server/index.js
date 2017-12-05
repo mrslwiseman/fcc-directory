@@ -4,7 +4,7 @@ const express        = require('express'),
       path           = require('path'),
       routes         = require('./routes/routes'),
       app            = express();
-      runScript      = require('./data/populate_db');
+      //runScript      = require('./data/populate_db');
       
 require('dotenv').config({ path: path.resolve(__dirname, '../variables.env') });
 app.use(express.static(path.resolve(__dirname, '../client/build')));
@@ -24,9 +24,9 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function () {
   // we're connected!
   console.log('connected to db on ' + database_mode )
-  if(process.env.NODE_ENV != 'production' ){
-    runScript.populateDB();
-  }
+  // if(process.env.NODE_ENV != 'production' ){
+  //   runScript.populateDB();
+  // }
 });
 
 
