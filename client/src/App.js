@@ -81,6 +81,13 @@ class App extends Component {
                   <Button
                     bsStyle="primary"
                     className="btn-margin"
+                    onClick={this.goTo.bind(this, 'members/add')}
+                    >
+                    Add
+                  </Button>
+                  <Button
+                    bsStyle="primary"
+                    className="btn-margin"
                     onClick={this.logout.bind(this)}
                   >
                     Log Out
