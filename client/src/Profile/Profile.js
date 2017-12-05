@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
 import { Panel, ControlLabel, Glyphicon } from 'react-bootstrap';
 import './Profile.css';
+import Auth from '../Auth/Auth';
+import axios from 'axios';
 
 class Profile extends Component {
-  postName(name) {
-    fetch("/members", {
-      method: "POST"
-    }).then(res => res.json())
-      .then(res => console.log(res))
-  }
   componentWillMount() {
     this.setState({ profile: {} });
     const { userProfile, getProfile } = this.props.auth;
@@ -25,7 +21,7 @@ class Profile extends Component {
     return (
       <div className="container">
         <div className="profile-area">
-        <button onClick={this.postName}>Send POST request</button>
+        <button>Edit</button>
           <h1>{profile.name}</h1>
           <Panel header="Profile">
             <img src={profile.picture} alt="profile" />

@@ -3,6 +3,7 @@ import {Redirect, Route, Router} from 'react-router-dom';
 import App from './App';
 import Home from './Home/Home';
 import Profile from './Profile/Profile';
+import Members from './Members';
 import Callback from './Callback/Callback';
 import Auth from './Auth/Auth';
 import history from './history';
@@ -20,13 +21,7 @@ const handleAuthentication = (nextState, replace) => {
           <div>
             <Route path="/" render={(props) => <App auth={auth} {...props} />} />
             <Route path="/home" render={(props) => <Home auth={auth} {...props} />} />
-            <Route path="/profile" render={(props) => (
-              !auth.isAuthenticated() ? (
-                <Redirect to="/home"/>
-              ) : (
-                <Profile auth={auth} {...props} />
-              )
-            )} />
+            <Route path="/members" render={(props) => <Members auth={auth} {...props} />} />
             <Route path="/callback" render={(props) => {
               handleAuthentication(props);
               return <Callback {...props} /> 

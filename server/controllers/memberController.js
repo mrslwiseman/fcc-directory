@@ -1,7 +1,16 @@
-const fs = require('fs'),
-      path = require("path"),
-      membersData = JSON.parse(fs.readFileSync(path.join(__dirname, '..', '/data/dummy-data-members.json'), 'utf-8')); // remove this when hoooked up to db
+const Member = require('../models/member');
 
-exports.members = (req,res) => {
-   res.json(membersData)
-  }
+exports.getAllMembers = (req, res) => {
+      console.log('serving up the members...')
+      Member.find({}, (err, members) => {
+            if (err) {
+                  console.log(err)
+            }
+            res.json(members)
+      })
+}
+
+exports.addMember = (req,res) => {
+      console.log('Adding member...')
+      Member.create(req.body)
+}

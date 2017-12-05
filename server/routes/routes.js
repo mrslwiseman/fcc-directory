@@ -1,29 +1,17 @@
-const express = require('express');
-const router = express.Router();
-const path = require('path')
-const memberController = require('../controllers/memberController')
+const router = require('express').Router()
+  ,   path = require('path')
+  ,   memberController = require('../controllers/memberController')
 
-router.post("/members", (req,res) => {
-  console.log(req)
-  res.json({"result": "member added"})
-})
-// /members
-router.get("/members", memberController.members)
-
+// index route 
+router.get("/members", memberController.getAllMembers)
+// Create route
+router.post("/members", memberController.addMember)
 // New route
 // app.get /members/new
 // render new member signup form
-
-
 router.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../../client/build', 'index.html'));
-  });
-
-
-// Create route
-// app.post /members
-// add member to db
-// redirect to index route
+  res.sendFile(path.resolve(__dirname, '../../client/build', 'index.html'));
+});
 
 // Show route
 // app.get /members/:id
@@ -42,6 +30,5 @@ router.get('*', (req, res) => {
 // app.delete /blogs/:id 
 // find by id and delete
 // redirect to index
-
 
 module.exports = router;

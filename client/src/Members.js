@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { MemberListComponent } from './components/members/member'
+import { MemberListComponent } from './Member/Member'
+import axios from 'axios'
 
-
-class Directory extends Component {
+class Members extends Component {
     constructor(props){
       super(props);
       // this has to have initial state otherwise will have MemberList render error
@@ -34,22 +34,48 @@ class Directory extends Component {
       ]}
     }
   
+
+
     componentDidMount() {
-      fetch('/members')
-        .then(res => res.json())
-        .then(obj => this.setState( {"members": obj} ));
+      axios.get("/members")
+      .then(res => this.setState( {"members": res.data} ));
     }
   
     componentDidUpdate(){
-      console.log(this.state)
     }
   
-  
+    login() {
+      this.props.auth.login();
+    }
+
     render() {
+      const { isAuthenticated } = this.props.auth;
       return (
-        <MemberListComponent members={this.state.members} />
-      )
+        <div className="container">
+                {
+            !isAuthenticated() && (
+                <h4>
+                  You are not logged in! Please{' '}
+                  <a
+                    style={{ cursor: 'pointer' }}
+                    onClick={this.login.bind(this)}
+                  >
+                    Log In
+                  </a>
+                  {' '}to continue.
+                </h4>
+              )
+          }
+          {
+            isAuthenticated() && (
+              <MemberListComponent members={this.state.members} />
+              )
+          }
+  
+        </div>
+      );
     }
+
   }
 
-  export default Directory;
+  export default Members;

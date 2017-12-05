@@ -13,6 +13,7 @@ class App extends Component {
 
   logout() {
     this.props.auth.logout();
+    this.props.history.replace(`/`)
   }
 
   render() {
@@ -32,6 +33,13 @@ class App extends Component {
             >
               Home
             </Button>
+            <Button
+                    bsStyle="primary"
+                    className="btn-margin"
+                    onClick={this.goTo.bind(this, 'members')}
+                  >
+                    Member Directory
+                  </Button>
             {
               !isAuthenticated() && (
                   <Button
@@ -43,17 +51,17 @@ class App extends Component {
                   </Button>
                 )
             }
-            {
+            {/* {
               isAuthenticated() && (
                   <Button
                     bsStyle="primary"
                     className="btn-margin"
-                    onClick={this.goTo.bind(this, 'profile')}
+                    onClick={this.goTo.bind(this, 'members')}
                   >
-                    Profile
+                    All Members
                   </Button>
                 )
-            }
+            } */}
             {
               isAuthenticated() && (
                   <Button

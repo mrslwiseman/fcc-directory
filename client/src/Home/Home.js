@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { MemberListComponent } from '../components/members/member';
-import  Directory  from '../Directory';
+import  Members  from '../Members';
 
 class Home extends Component {
   login() {
@@ -11,26 +10,7 @@ class Home extends Component {
     const { isAuthenticated } = this.props.auth;
     return (
       <div className="container">
-              {
-          !isAuthenticated() && (
-              <h4>
-                You are not logged in! Please{' '}
-                <a
-                  style={{ cursor: 'pointer' }}
-                  onClick={this.login.bind(this)}
-                >
-                  Log In
-                </a>
-                {' '}to continue.
-              </h4>
-            )
-        }
-        {
-          isAuthenticated() && (
-              <Directory />
-            )
-        }
-
+        <h1>Welcome to the FCC Melbourne Member Directory</h1>
       </div>
     );
   }
