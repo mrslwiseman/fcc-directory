@@ -13,8 +13,24 @@ class App extends Component {
 
   logout() {
     this.props.auth.logout();
-    this.props.history.replace(`/`)
+    this.props.history.replace(`/home`)
   }
+
+  componentWillMount() {
+    if(this.props.auth.isAuthenticated()){
+      this.setState({ profile: {} });
+      const { userProfile, getProfile } = this.props.auth;
+      if (!userProfile) {
+        getProfile((err, profile) => {
+          this.setState({ profile });
+        });
+      } else {
+        this.setState({ profile: userProfile });
+      }
+    }
+    
+  }
+
 
   render() {
     const { isAuthenticated } = this.props.auth;
@@ -51,19 +67,17 @@ class App extends Component {
                   </Button>
                 )
             }
-            {/* {
+            {
               isAuthenticated() && (
+                <span>
+                  
                   <Button
                     bsStyle="primary"
                     className="btn-margin"
-                    onClick={this.goTo.bind(this, 'members')}
-                  >
-                    All Members
+                    onClick={this.goTo.bind(this, 'members/profile')}
+                    >
+                    Profile
                   </Button>
-                )
-            } */}
-            {
-              isAuthenticated() && (
                   <Button
                     bsStyle="primary"
                     className="btn-margin"
@@ -71,6 +85,7 @@ class App extends Component {
                   >
                     Log Out
                   </Button>
+                </span>
                 )
             }
           </Navbar.Header>

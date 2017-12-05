@@ -4,6 +4,7 @@ import App from './App';
 import Home from './Home/Home';
 import Profile from './Profile/Profile';
 import Members from './Members';
+import Add from './Add/Add';
 import Callback from './Callback/Callback';
 import Auth from './Auth/Auth';
 import history from './history';
@@ -20,8 +21,17 @@ const handleAuthentication = (nextState, replace) => {
       <Router history={history} component={App}>
           <div>
             <Route path="/" render={(props) => <App auth={auth} {...props} />} />
-            <Route path="/home" render={(props) => <Home auth={auth} {...props} />} />
-            <Route path="/members" render={(props) => <Members auth={auth} {...props} />} />
+            <Route path="/" render={(props) => <Home auth={auth} {...props} />} />
+            <Route exact path="/members" render={(props) => <Members auth={auth} {...props} />} />
+            <Route exact path="/members/add" render={(props) => (
+             !auth.isAuthenticated() ? (
+              <Redirect to="/members" />
+            ) : (
+              <Add auth={auth} {...props} />
+            )
+            
+          )}/>
+            <Route exact path="/members/profile" render={(props) => <Profile auth={auth} {...props} />} />
             <Route path="/callback" render={(props) => {
               handleAuthentication(props);
               return <Callback {...props} /> 

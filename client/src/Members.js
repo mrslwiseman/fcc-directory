@@ -19,9 +19,14 @@ class Members extends Component {
           "stack": [
             "Loading..."
           ],
-          "fcc_recent": "Loading...",
+          
           "fcc_forum_stats": "Loading...",
-          "socials": {
+          "fcc": {
+            "fcc_username": "Loading...",
+            "fcc_recent": "Loading...",
+            "fcc_forum_stats": "Loading..."
+          },
+          "contact": {
             "fcc": "Loading...",
             "github": "Loading...",
             "twitter": "Loading..."

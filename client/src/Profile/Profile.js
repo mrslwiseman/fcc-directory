@@ -21,7 +21,6 @@ class Profile extends Component {
     return (
       <div className="container">
         <div className="profile-area">
-        <button>Edit</button>
           <h1>{profile.name}</h1>
           <Panel header="Profile">
             <img src={profile.picture} alt="profile" />
