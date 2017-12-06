@@ -2,6 +2,11 @@ const router = require('express').Router()
   ,   path = require('path')
   ,   memberController = require('../controllers/memberController')
 
+
+router.get('/', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../../client/build', 'index.html'));
+});
+
 // index route 
 router.get("/members", memberController.getAllMembers)
 // Create route
@@ -9,7 +14,7 @@ router.post("/members", memberController.addMember)
 // New route
 // app.get /members/new
 // render new member signup form
-router.get('*', (req, res) => {
+router.get('/', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../../client/build', 'index.html'));
 });
 
