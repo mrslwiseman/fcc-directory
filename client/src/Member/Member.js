@@ -30,9 +30,9 @@ const MemberComponent = ({ props }) => {
   const bio = props.bio || "na"
   const stack = props.stack || []
 
-  const recent = props.fcc.fcc_recent ? props.fcc.fcc_recent : "Loading..."
-  const fcc_forum_stats = fcc_forum_stats ? fcc_forum_stats : "Loading..."
-
+  const recent = "Loading..."
+  const fcc_forum_stats = "Loading..."
+console.log(props)
   const github = props.contact.github ? props.contact.github : "mrslwiseman";
   const twitter = props.contact.twitter ? props.contact.twitter : "mrslwiseman";
   const fcc_username = props.fcc.fcc_username ? props.fcc.fcc_username : "mrslwiseman";
