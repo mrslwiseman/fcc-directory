@@ -18,6 +18,7 @@ class Add extends React.Component {
         surname: "",
         email: "",
         picture: "",
+        bio: "",
         contact: {
           github: "",
           twitter: ""
