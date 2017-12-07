@@ -1,6 +1,6 @@
 console.log(process.env.NODE_ENV)
 const callbackUrl = 
-  process.env.NODE_ENV === 'production' 
+  process.env.NODE_ENV == 'production' 
   ? 'https://immense-forest-46365.herokuapp.com/callback' 
   : 'http://localhost:3000/callback'
 

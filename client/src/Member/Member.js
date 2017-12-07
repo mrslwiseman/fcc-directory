@@ -1,10 +1,27 @@
 import React, { Component } from 'react';
 import { Panel, ControlLabel, Glyphicon } from 'react-bootstrap';
-import MemberStackComponent from './MemberStack'
-import MemberMeetupComponent from './MemberMeetup'
+import './Member.css'
 
+const MemberMeetupComponent = ({ props }) => (
+  <div>
+    <h4>Meetup.com info</h4>
+    <h5>Meetups attended: </h5>
+    {props.attended}
+    <h5>Last seen:</h5>
+     {props.last_seen}
+  </div>
+)
 
-const MemberCardComponent = ({ props }) => {
+const MemberStackComponent = ({ stack }) => (
+  <div>
+    <h4>Stack I'm Learning:</h4>
+    <ul>
+      {stack.map((stackItem, index) => <li key={index}>{stackItem}</li>)}
+    </ul>
+  </div>
+)
+
+const MemberComponent = ({ props }) => {
   const name = props.name || "na"
   const surname = props.surname || "na"
   const email = props.email || "na"
@@ -15,6 +32,7 @@ const MemberCardComponent = ({ props }) => {
 
   const recent = "Loading..."
   const fcc_forum_stats = "Loading..."
+console.log(props)
   const github = props.contact.github ? props.contact.github : "mrslwiseman";
   const twitter = props.contact.twitter ? props.contact.twitter : "mrslwiseman";
   const fcc_username = props.fcc.fcc_username ? props.fcc.fcc_username : "mrslwiseman";
@@ -70,4 +88,10 @@ const MemberCardComponent = ({ props }) => {
   )
 }
 
-export default MemberCardComponent
+const MemberListComponent = ({ members }) => (
+  <div bsClass="row" className="memberCardRow">
+    {members.map((member, index) => <MemberComponent key={member._id || index} props={member} />)}
+  </div>
+)
+
+export { MemberComponent, MemberListComponent, MemberMeetupComponent, MemberStackComponent }

@@ -3,7 +3,7 @@ import {Redirect, Route, Router} from 'react-router-dom';
 import App from './App';
 import Home from './Home/Home';
 import Profile from './Profile/Profile';
-import Members from './Members/Members';
+import Members from './Members';
 import Add from './Add/Add';
 import Callback from './Callback/Callback';
 import Auth from './Auth/Auth';

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Panel, ControlLabel, Glyphicon } from 'react-bootstrap';
 import './Profile.css';
+import Auth from '../Auth/Auth';
+import axios from 'axios';
 
 class Profile extends Component {
   componentWillMount() {
