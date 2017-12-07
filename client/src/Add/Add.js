@@ -21,37 +21,37 @@ class Add extends React.Component {
     };
 
   }
-componentWillMount(){
-  const { userProfile, getProfile } = this.props.auth;
-  if (!userProfile) {
-    getProfile((err, profile) => {
-      
-      let name = profile.given_name ? profile.given_name : profile.nickname ? profile.nickname : "";
-      let surname = profile.family_name ? profile.family_name : "";
-      let email = profile.email ? profile.email : "";
-      let picture = profile.picture ? profile.picture : "";
 
-      this.setState( Object.assign({}, this.state, {
-        formData: {
-          name: name,
-          surname: surname,
-          email: email,
-          picture: picture,
-          contact: {},
-          meetup: {},
-          stack: []
-        },
-        profile
-      }) );
-console.log(this.state)
-    });
-  } else {
-    this.setState({ profile: userProfile });
+  prefillFormWithProfileData(){
+    const { userProfile, getProfile } = this.props.auth;
+    if (!userProfile) {
+      getProfile((err, profile) => {
+        
+        let name = profile.given_name ? profile.given_name : profile.nickname ? profile.nickname : "";
+        let surname = profile.family_name ? profile.family_name : "";
+        let email = profile.email ? profile.email : "";
+        let picture = profile.picture ? profile.picture : "";
+  
+        this.setState( Object.assign({}, this.state, {
+          formData: {
+            name: name,
+            surname: surname,
+            email: email,
+            picture: picture,
+            contact: {},
+            meetup: {},
+            stack: []
+          },
+          profile
+        }) );
+      });
+    } else {
+      this.setState({ profile: userProfile });
+    }
   }
 
-  console.log('state:')
-  setTimeout(()=>console.log(this.state), 1000)
-  
+componentWillMount(){
+  this.prefillFormWithProfileData();
 }
 
 
@@ -60,32 +60,32 @@ console.log(this.state)
     let name = target.name;
     let value = target.value;
 
-    if (name == 'stack') {
+    if (name === 'stack') {
       value = value.split(",")
     }
 
-    if (name == 'twitter') {
+    if (name === 'twitter') {
       name = "contact";
       value =
         Object.assign({}, this.state.formData.contact, {
           twitter: value
         })
     }
-    if (name == 'github') {
+    if (name === 'github') {
       name = "contact";
       value =
         Object.assign({}, this.state.formData.contact, {
           github: value
         })
     }
-    if (name == 'fcc_username') {
+    if (name === 'fcc_username') {
       name = "fcc";
       value =
         Object.assign({}, this.state.formData.contact, {
           fcc_username: value
         })
     }
-    if (name == 'meetup_username') {
+    if (name === 'meetup_username') {
       name = "meetup";
       value =
         Object.assign({}, this.state.formData.meetup, {
@@ -93,16 +93,11 @@ console.log(this.state)
         })
     }
 
-
-
-
-
     this.setState({
       formData: Object.assign({}, this.state.formData, {
         [name]: value
       })
     })
-    console.log(this.state)
 
   }
 
@@ -198,12 +193,6 @@ console.log(this.state)
             onChange={this.handleInputChange} />
         </label>
         <br />
-
-
-
-
-
-
 
         <label>
           Email

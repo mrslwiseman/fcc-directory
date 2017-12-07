@@ -40,7 +40,7 @@ class App extends Component {
         <Navbar fluid>
           <Navbar.Header>
             <Navbar.Brand>
-              <a href="#">FCC Melbourne Directory</a>
+              <a>FCC Melbourne Directory</a>
             </Navbar.Brand>
             <Button
               bsStyle="primary"

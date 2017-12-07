@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { MemberListComponent } from './Member/Member'
+import MemberListComponent from './MemberList'
 import axios from 'axios'
 
 class Members extends Component {
     constructor(props){
       super(props);
       // this has to have initial state otherwise will have MemberList render error
-      // how can i render after /members fetch has come back?
       this.state = {members: [
         {
           "_id": "Loading...",
@@ -14,7 +13,7 @@ class Members extends Component {
           "surname": "Loading...",
           "location": "Loading...",
           "email": "Loading...",
-          "picture": "images/fcc-loading.svg",
+          "picture": "",
           "bio": "Loading...",
           "stack": [
             "Loading..."
