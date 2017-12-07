@@ -9,51 +9,62 @@ class Add extends React.Component {
     super(props);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-
+    this.prefillFormData = this.prefillFormData.bind(this)
 
     this.state = {
       profile: {},
       formData: {
-        contact: {},
-        meetup: {},
+        name: "",
+        surname: "",
+        email: "",
+        picture: "",
+        contact: {
+          github: "",
+          twitter: ""
+        },
+        fcc: {
+          fcc_username: "",
+          fcc_forum_status: "",
+          fcc_recent: ""
+        },
+        meetup: {
+          username: "",
+          last_seen: "",
+          attended: ""
+        },
         stack: []
       }
     };
 
   }
-componentWillMount(){
-  const { userProfile, getProfile } = this.props.auth;
-  if (!userProfile) {
-    getProfile((err, profile) => {
-      
-      let name = profile.given_name ? profile.given_name : profile.nickname ? profile.nickname : "";
-      let surname = profile.family_name ? profile.family_name : "";
-      let email = profile.email ? profile.email : "";
-      let picture = profile.picture ? profile.picture : "";
 
-      this.setState( Object.assign({}, this.state, {
-        formData: {
-          name: name,
-          surname: surname,
-          email: email,
-          picture: picture,
-          contact: {},
-          meetup: {},
-          stack: []
-        },
-        profile
-      }) );
-console.log(this.state)
-    });
-  } else {
-    this.setState({ profile: userProfile });
+  prefillFormData(profile) {
+    let name = profile.given_name ? profile.given_name : profile.nickname ? profile.nickname : "";
+    let surname = profile.family_name ? profile.family_name : "";
+    let email = profile.email ? profile.email : "";
+    let picture = profile.picture ? profile.picture : "";
+
+    this.setState(Object.assign({}, this.state, {
+      formData: Object.assign({}, this.state.formData, {
+        name: name,
+        surname: surname,
+        email: email,
+        picture: picture
+      }),
+      profile
+    }));
   }
 
-  console.log('state:')
-  setTimeout(()=>console.log(this.state), 1000)
-  
-}
-
+  componentWillMount() {
+    const { userProfile, getProfile } = this.props.auth;
+    if (!userProfile) {
+      getProfile((err, profile) => {
+        this.prefillFormData(profile)
+      });
+    } else {
+      this.prefillFormData(userProfile)
+    }
+  }
 
   handleInputChange(event) {
     let target = event.target;
@@ -114,6 +125,9 @@ console.log(this.state)
   }
 
   render() {
+console.log('state at render:')
+    console.log(this.state.formData)
+    
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
@@ -166,7 +180,7 @@ console.log(this.state)
             <input
             name="fcc_username"
             type="text"
-            value={this.state.formData.contact.fcc}
+            value={this.state.formData.fcc.fcc_username}
             onChange={this.handleInputChange} />
         </label>
         <br />
@@ -189,21 +203,15 @@ console.log(this.state)
             onChange={this.handleInputChange} />
         </label>
         <br />
-        <label>
+         <label>
           Meetup username
             <input
             name="meetup_username"
             type="text"
-            value={this.state.formData.contact.meetup_username}
+            value={this.state.formData.meetup.username}
             onChange={this.handleInputChange} />
         </label>
         <br />
-
-
-
-
-
-
 
         <label>
           Email
