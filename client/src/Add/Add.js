@@ -113,7 +113,6 @@ class Add extends React.Component {
         [name]: value
       })
     })
-    console.log(this.state)
 
   }
 
@@ -125,9 +124,6 @@ class Add extends React.Component {
   }
 
   render() {
-console.log('state at render:')
-    console.log(this.state.formData)
-    
     return (
       <form onSubmit={this.handleSubmit}>
         <label>

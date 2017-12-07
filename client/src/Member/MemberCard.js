@@ -1,27 +1,14 @@
 import React, { Component } from 'react';
 import { Panel, ControlLabel, Glyphicon } from 'react-bootstrap';
-import './Member.css'
+import './Member.css';
+import MemberStack from './MemberStack';
+import MemberMeetup from './MemberMeetup';
 
-const MemberMeetupComponent = ({ props }) => (
-  <div>
-    <h4>Meetup.com info</h4>
-    <h5>Meetups attended: </h5>
-    {props.attended}
-    <h5>Last seen:</h5>
-     {props.last_seen}
-  </div>
-)
 
-const MemberStackComponent = ({ stack }) => (
-  <div>
-    <h4>Stack I'm Learning:</h4>
-    <ul>
-      {stack.map((stackItem, index) => <li key={index}>{stackItem}</li>)}
-    </ul>
-  </div>
-)
 
-const MemberComponent = ({ props }) => {
+
+
+const MemberCard = ({ props }) => {
   const name = props.name || "na"
   const surname = props.surname || "na"
   const email = props.email || "na"
@@ -32,7 +19,6 @@ const MemberComponent = ({ props }) => {
 
   const recent = "Loading..."
   const fcc_forum_stats = "Loading..."
-console.log(props)
   const github = props.contact.github ? props.contact.github : "mrslwiseman";
   const twitter = props.contact.twitter ? props.contact.twitter : "mrslwiseman";
   const fcc_username = props.fcc.fcc_username ? props.fcc.fcc_username : "mrslwiseman";
@@ -52,7 +38,7 @@ console.log(props)
         {stack &&
           <div>
 
-            <MemberStackComponent stack={stack} />
+            <MemberStack stack={stack} />
 
           </div>
         }
@@ -64,7 +50,7 @@ console.log(props)
           {fcc_forum_stats}
 
           {props.meetup &&
-            <MemberMeetupComponent props={props.meetup} />
+            <MemberMeetup props={props.meetup} />
           }
         </div>
 
@@ -88,10 +74,6 @@ console.log(props)
   )
 }
 
-const MemberListComponent = ({ members }) => (
-  <div bsClass="row" className="memberCardRow">
-    {members.map((member, index) => <MemberComponent key={member._id || index} props={member} />)}
-  </div>
-)
 
-export { MemberComponent, MemberListComponent, MemberMeetupComponent, MemberStackComponent }
+
+export default MemberCard 

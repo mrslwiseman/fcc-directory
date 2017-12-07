@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { MemberListComponent } from './Member/Member'
+import MemberList from './Member/MemberList'
 import axios from 'axios'
 
 class Members extends Component {
@@ -73,7 +73,7 @@ class Members extends Component {
           }
           {
             isAuthenticated() && (
-              <MemberListComponent members={this.state.members} />
+              <MemberList members={this.state.members} />
               )
           }
   
