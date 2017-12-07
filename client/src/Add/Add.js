@@ -14,24 +14,8 @@ class Add extends React.Component {
     this.state = {
       profile: {},
       formData: {
-        name: "",
-        surname: "",
-        email: "",
-        picture: "",
-        contact: {
-          github: "",
-          twitter: ""
-        },
-        fcc: {
-          fcc_username: "",
-          fcc_forum_status: "",
-          fcc_recent: ""
-        },
-        meetup: {
-          username: "",
-          attended: "",
-          last_seen: ""
-        },
+        contact: {},
+        meetup: {},
         stack: []
       }
     };
@@ -39,6 +23,31 @@ class Add extends React.Component {
   }
 
   prefillFormWithProfileData(){
+    const { userProfile, getProfile } = this.props.auth;
+    if (!userProfile) {
+      getProfile((err, profile) => {
+        
+        let name = profile.given_name ? profile.given_name : profile.nickname ? profile.nickname : "";
+        let surname = profile.family_name ? profile.family_name : "";
+        let email = profile.email ? profile.email : "";
+        let picture = profile.picture ? profile.picture : "";
+  
+        this.setState( Object.assign({}, this.state, {
+          formData: {
+            name: name,
+            surname: surname,
+            email: email,
+            picture: picture,
+            contact: {},
+            meetup: {},
+            stack: []
+          },
+          profile
+        }) );
+      });
+    } else {
+      this.setState({ profile: userProfile });
+    }
   }
 
 componentWillMount(){
