@@ -12,5 +12,6 @@ exports.getAllMembers = (req, res) => {
 
 exports.addMember = (req,res) => {
       console.log('Adding member...')
+      console.log(req.body)
       Member.create(req.body)
 }

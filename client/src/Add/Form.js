@@ -1,107 +1,7 @@
 import React, { Component } from 'react';
-import { Panel, ControlLabel, Glyphicon } from 'react-bootstrap';
-//import './Add.css';
-import Auth from '../Auth/Auth';
-import axios from 'axios';
 
-class Add extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-
-
-    this.state = {
-      profile: {},
-      formData: {
-        name: "",
-        surname: "",
-        email: "",
-        picture: "",
-        contact: {
-          github: "",
-          twitter: ""
-        },
-        fcc: {
-          fcc_username: "",
-          fcc_forum_status: "",
-          fcc_recent: ""
-        },
-        meetup: {
-          username: "",
-          attended: "",
-          last_seen: ""
-        },
-        stack: []
-      }
-    };
-
-  }
-
-  prefillFormWithProfileData(){
-  }
-
-componentWillMount(){
-  this.prefillFormWithProfileData();
-}
-
-
-  handleInputChange(event) {
-    let target = event.target;
-    let name = target.name;
-    let value = target.value;
-
-    if (name === 'stack') {
-      value = value.split(",")
-    }
-
-    if (name === 'twitter') {
-      name = "contact";
-      value =
-        Object.assign({}, this.state.formData.contact, {
-          twitter: value
-        })
-    }
-    if (name === 'github') {
-      name = "contact";
-      value =
-        Object.assign({}, this.state.formData.contact, {
-          github: value
-        })
-    }
-    if (name === 'fcc_username') {
-      name = "fcc";
-      value =
-        Object.assign({}, this.state.formData.contact, {
-          fcc_username: value
-        })
-    }
-    if (name === 'meetup_username') {
-      name = "meetup";
-      value =
-        Object.assign({}, this.state.formData.meetup, {
-          meetup_username: value
-        })
-    }
-
-    this.setState({
-      formData: Object.assign({}, this.state.formData, {
-        [name]: value
-      })
-    })
-
-  }
-
-  handleSubmit(event) {
-    event.preventDefault();
-    let data = this.state.formData
-    axios.post("/members", data)
-    this.props.history.replace(`/members`)
-  }
-
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
+const Form = () => (
+<form onSubmit={this.handleSubmit}>
         <label>
           Name
             <input
@@ -197,8 +97,6 @@ componentWillMount(){
         <img src={this.state.formData.picture} />
         <input type="submit" value="submit" />
       </form>
-    );
-  }
-}
+)
 
-export default Add;
+export default Form
