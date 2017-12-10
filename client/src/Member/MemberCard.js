@@ -4,9 +4,10 @@ import './Member.css';
 import MemberStack from './MemberStack';
 import MemberMeetup from './MemberMeetup';
 
-
-
-
+const Xray = require('x-ray');
+const x = Xray();
+let projects = [];
+const re = /^(https:\/\/freecodecamp.org)|(https:\/\/freecodecamp.com)/
 
 const MemberCard = ({ props }) => {
   const name = props.name || "na"
@@ -16,12 +17,27 @@ const MemberCard = ({ props }) => {
   const picture = props.picture || "https://picsum.photos/400/200/?random"
   const bio = props.bio || "na"
   const stack = props.stack || []
-
-  const recent = "Loading..."
+  
+  let recent = "Loading..."
   const fcc_forum_stats = "Loading..."
   const github = props.contact.github ? props.contact.github : "mrslwiseman";
   const twitter = props.contact.twitter ? props.contact.twitter : "mrslwiseman";
   const fcc_username = props.fcc.fcc_username ? props.fcc.fcc_username : "mrslwiseman";
+  
+  const scrape = (fcc_username) => {
+    return new Promise((yeah, nah) => {
+      x(`https://freecodecamp.org/${fcc_username}`, ['a@href'])((err, data) => {
+        if (err) console.log(err);
+        let links = data.toString().split(',');
+        for (let link of links) {
+          if (!link.match(re)) {
+            projects.push(link);
+          }
+        }
+        (projects.length > 1) ? yeah(projects[projects.length-1]) : nah('Projects not found');
+      });
+
+    })
 
   return (
     <div className="col-sm-4 col-lg-3">
@@ -45,7 +61,7 @@ const MemberCard = ({ props }) => {
         <div>
           <h4>Free Code Camp Details:</h4>
           <h5>Recent Project:</h5> 
-          {recent}
+          {this.scrape(fcc_username)}
           <h5>FCC Forum Stats:</h5> 
           {fcc_forum_stats}
 
@@ -73,7 +89,7 @@ const MemberCard = ({ props }) => {
     </div>
   )
 }
+}
 
 
-
-export default MemberCard 
+export default MemberCard;
