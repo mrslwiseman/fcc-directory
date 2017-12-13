@@ -18,6 +18,8 @@ router.get('/', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../../client/build', 'index.html'));
 });
 
+router.get("/members/add/meetup", memberController.meetup)
+
 // Show route
 // app.get /members/:id
 // render member profile view (this might not be needed)

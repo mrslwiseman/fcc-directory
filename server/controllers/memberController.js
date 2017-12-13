@@ -1,4 +1,5 @@
 const Member = require('../models/member');
+const find = require('./findMemberMeetup');
 
 exports.getAllMembers = (req, res) => {
       console.log('serving up the members...')
@@ -13,4 +14,12 @@ exports.getAllMembers = (req, res) => {
 exports.addMember = (req,res) => {
       console.log('Adding member...')
       Member.create(req.body)
+}
+
+exports.meetup = (req,res) => {
+      find.find('Matt')
+            .then(resolve => {
+                  res.json(resolve)
+            })
+      
 }

@@ -4,14 +4,33 @@ import { Panel, ControlLabel, Glyphicon } from 'react-bootstrap';
 import Auth from '../Auth/Auth';
 import axios from 'axios';
 
+
+const MeetupSearch = (props) => {
+  const members = props.searchResults.map(m => {
+    return (
+      <div key={m.id}>
+        <img src={m.photo} />
+        <div>{m.name}</div>
+        <button type="button" name="meetup_username" value={m.id} onClick={props.handleClick}>Select</button>
+      </div>
+    )
+  })
+  return <div>
+    Meetup search results:
+            {members}
+  </div>
+}
+
 class Add extends React.Component {
   constructor(props) {
     super(props);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.prefillFormData = this.prefillFormData.bind(this)
+    this.searchForMeetup = this.searchForMeetup.bind(this)
 
     this.state = {
+      meetupSearchResults: [],
       profile: {},
       formData: {
         name: "",
@@ -39,6 +58,19 @@ class Add extends React.Component {
 
   }
 
+  searchForMeetup(name) {
+    console.log('searching...')
+    axios.get(`/members/add/meetup?name=${name}`)
+      .then(res => {
+        console.log('from react:')
+        console.log(res.data)
+        this.setState(Object.assign({}, this.state, {
+          meetupSearchResults: res.data
+        }))
+      })
+  }
+
+
   prefillFormData(profile) {
     let name = profile.given_name ? profile.given_name : profile.nickname ? profile.nickname : "";
     let surname = profile.family_name ? profile.family_name : "";
@@ -54,6 +86,9 @@ class Add extends React.Component {
       }),
       profile
     }));
+    // once name is loaded
+    // search meetup group for names
+    this.searchForMeetup(this.state.formData.name);
   }
 
   componentWillMount() {
@@ -68,6 +103,7 @@ class Add extends React.Component {
   }
 
   handleInputChange(event) {
+    console.log('handleInputChange...')
     let target = event.target;
     let name = target.name;
     let value = target.value;
@@ -98,16 +134,14 @@ class Add extends React.Component {
         })
     }
     if (name == 'meetup_username') {
+    console.log('meetup_username...')
+    
       name = "meetup";
       value =
         Object.assign({}, this.state.formData.meetup, {
-          meetup_username: value
+          username: value
         })
     }
-
-
-
-
 
     this.setState({
       formData: Object.assign({}, this.state.formData, {
@@ -126,102 +160,106 @@ class Add extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Name
-            <input
-            name="name"
-            type="text"
-            value={this.state.formData.name}
-            onChange={this.handleInputChange} />
-        </label>
-        <br />
-        <label>
-          Surname
-            <input
-            name="surname"
-            type="text"
-            value={this.state.formData.surname}
-            onChange={this.handleInputChange} />
-        </label>
-        <br />
-        <label>
-          Location
-            <input
-            name="location"
-            type="text"
-            value={this.state.formData.location}
-            onChange={this.handleInputChange} />
-        </label>
-        <br />
-        <label>
-          Bio
-            <input
-            name="bio"
-            type="text"
-            value={this.state.formData.bio}
-            onChange={this.handleInputChange} />
-        </label>
-        <br />
-        <label>
-          Stack
-            <input
-            name="stack"
-            type="text"
-            value={this.state.formData.stack}
-            onChange={this.handleInputChange} />
-        </label>
-        <br />
-        <label>
-          Free Code Camp username
-            <input
-            name="fcc_username"
-            type="text"
-            value={this.state.formData.fcc.fcc_username}
-            onChange={this.handleInputChange} />
-        </label>
-        <br />
+      <div>
 
-        <label>
-          Github username
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            Name
             <input
-            name="github"
-            type="text"
-            value={this.state.formData.contact.github}
-            onChange={this.handleInputChange} />
-        </label>
-        <br />
-        <label>
-          Twitter
+              name="name"
+              type="text"
+              value={this.state.formData.name}
+              onChange={this.handleInputChange} />
+          </label>
+          <br />
+          <label>
+            Surname
             <input
-            name="twitter"
-            type="text"
-            value={this.state.formData.contact.twitter}
-            onChange={this.handleInputChange} />
-        </label>
-        <br />
-         <label>
-          Meetup username
+              name="surname"
+              type="text"
+              value={this.state.formData.surname}
+              onChange={this.handleInputChange} />
+          </label>
+          <br />
+          <label>
+            Location
             <input
-            name="meetup_username"
-            type="text"
-            value={this.state.formData.meetup.username}
-            onChange={this.handleInputChange} />
-        </label>
-        <br />
+              name="location"
+              type="text"
+              value={this.state.formData.location}
+              onChange={this.handleInputChange} />
+          </label>
+          <br />
+          <label>
+            Bio
+            <input
+              name="bio"
+              type="text"
+              value={this.state.formData.bio}
+              onChange={this.handleInputChange} />
+          </label>
+          <br />
+          <label>
+            Stack
+            <input
+              name="stack"
+              type="text"
+              value={this.state.formData.stack}
+              onChange={this.handleInputChange} />
+          </label>
+          <br />
+          <label>
+            Free Code Camp username
+            <input
+              name="fcc_username"
+              type="text"
+              value={this.state.formData.fcc.fcc_username}
+              onChange={this.handleInputChange} />
+          </label>
+          <br />
 
-        <label>
-          Email
+          <label>
+            Github username
             <input
-            name="email"
-            type="email"
-            value={this.state.formData.email}
-            onChange={this.handleInputChange} />
-        </label>
-        <br />
-        <img src={this.state.formData.picture} />
-        <input type="submit" value="submit" />
-      </form>
+              name="github"
+              type="text"
+              value={this.state.formData.contact.github}
+              onChange={this.handleInputChange} />
+          </label>
+          <br />
+          <label>
+            Twitter
+            <input
+              name="twitter"
+              type="text"
+              value={this.state.formData.contact.twitter}
+              onChange={this.handleInputChange} />
+          </label>
+          <br />
+        <MeetupSearch searchResults={this.state.meetupSearchResults} handleClick={this.handleInputChange}/>          
+          <label>
+            Meetup username
+            <input
+              name="meetup_username"
+              type="text"
+              value={this.state.formData.meetup.username}
+              onChange={this.handleInputChange} />
+          </label>
+          <br />
+
+          <label>
+            Email
+            <input
+              name="email"
+              type="email"
+              value={this.state.formData.email}
+              onChange={this.handleInputChange} />
+          </label>
+          <br />
+          <img src={this.state.formData.picture} />
+          <input type="submit" value="submit" />
+        </form>
+      </div>
     );
   }
 }
