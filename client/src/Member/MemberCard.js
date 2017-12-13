@@ -4,10 +4,6 @@ import './Member.css';
 import MemberStack from './MemberStack';
 import MemberMeetup from './MemberMeetup';
 
-
-
-
-
 const MemberCard = ({ props }) => {
   const name = props.name || "na"
   const surname = props.surname || "na"
@@ -16,13 +12,14 @@ const MemberCard = ({ props }) => {
   const picture = props.picture || "https://picsum.photos/400/200/?random"
   const bio = props.bio || "na"
   const stack = props.stack || []
-
-  const recent = "Loading..."
+  
+  const recent_url = props.fcc.fcc_recent || "#"
+  const recent_slug = recent_url.match(/[^/]+(?=\/$|$)/).toString().replace(/-/g, ' ');
   const fcc_forum_stats = "Loading..."
   const github = props.contact.github ? props.contact.github : "mrslwiseman";
   const twitter = props.contact.twitter ? props.contact.twitter : "mrslwiseman";
   const fcc_username = props.fcc.fcc_username ? props.fcc.fcc_username : "mrslwiseman";
-
+  
   return (
     <div className="col-sm-4 col-lg-3">
       <div className="panel panel-danger">
@@ -45,7 +42,7 @@ const MemberCard = ({ props }) => {
         <div>
           <h4>Free Code Camp Details:</h4>
           <h5>Recent Project:</h5> 
-          {recent}
+          {recent_url != '#' ? <a href={`${recent_url}`}>{`${recent_slug}`}</a> : "No project found!"}
           <h5>FCC Forum Stats:</h5> 
           {fcc_forum_stats}
 
@@ -75,5 +72,4 @@ const MemberCard = ({ props }) => {
 }
 
 
-
-export default MemberCard 
+export default MemberCard;
