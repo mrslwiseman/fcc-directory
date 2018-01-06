@@ -1,0 +1,16 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "watch": "concurrently \"npm run start\" \"cd ../client; npm run start\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2"
+  }
+}

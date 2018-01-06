@@ -1,0 +1,141 @@
+*
+    -webkit-font-smoothing antialiased
+    -moz-osx-font-smoothing grayscale
+
+
+@font-face{
+    font-family rubikregular
+    src url(./fonts/rubikregular.woff)    
+}
+
+body 
+    font-family: 'rubikregular', sans-serif
+    color #FFFFFF
+    background-image: linear-gradient(-20deg, #575DDE 0%, #3023AE 100%)
+
+h1 
+    margin 2rem 0
+
+
+@media screen and (min-width: 600px)
+    main
+        margin 0 auto
+
+@media (min-width: 600px)
+    .directory
+        grid-template-columns repeat(2, 1fr)
+    .m
+        flex: 1 1 40%
+@media (min-width: 800px)
+    .directory
+        grid-template-columns repeat(3, 1fr)
+@media (min-width: 1200px)
+    .directory
+        grid-template-columns repeat(4, 1fr)
+    .m
+        flex: 1 1 25%
+
+
+
+// MEMBER CARD ********************************
+
+display-grid()
+    display -ms-grid
+    display grid
+    grid-auto-rows auto
+
+
+
+
+.directory
+    display flex
+    flex-wrap wrap
+    display-grid()
+
+    
+
+.m
+    margin 40px 10px
+    //flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]
+    position relative
+    padding 1rem
+    text-align center
+    background-image linear-gradient(-20deg, #5A5EDF 24%, #3E8ED7 100%)
+    box-shadow 0 2px 18px 0 rgba(0,0,0,0.09)
+    font-size 1rem
+
+&.m__photo
+    height 160px
+    display flex
+    justify-content center
+&.m__img
+    height 200px
+    width 200px
+    margin-top: -50px
+    border-radius 50%
+    border 4px solid white
+
+
+&.m__name 
+    text-shadow 0 1px 7px rgba(16,36,80,0.40)
+    margin 1rem 0 1rem
+
+&.m__stack
+    margin 1rem 0
+
+&.m__location
+    position relative
+    font-size .9rem
+
+&.m__location
+    
+    &:before
+        content ""
+        display inline-block
+        position absolute
+        left -23px
+        top 0
+        background no-repeat center/contain url(./images/location.svg) 
+        height .9rem
+        width .9rem
+        margin 0 5px
+
+&.m__connect
+    margin 2.25rem 0
+
+&.m__bio 
+    font-size .9rem
+    text-shadow: 0 1px 1px rgba(0,0,0,0.50)
+
+&.m__joined
+    font-size .8rem
+    margin 1.5rem 0 1rem
+    
+    &:before
+        content ""
+        display block
+        height 2px
+        width 3rem
+        margin 1rem auto
+        background-color white
+
+&.m__connect 
+    a
+        transition all .2s cubic-bezier(0.175, 0.885, 0.32, 2.275)
+        padding 20px
+        display inline-block
+    a:hover
+        transform translateY(-5px)
+
+
+&.m__email
+    background no-repeat center/75% url(./images/email.svg) 
+
+&.m__fcc
+    background no-repeat center/75% url(./images/email.svg) 
+
+&.m__github
+    background no-repeat center/75% url(./images/github.svg) 
+
+&.m__meetup
+    background no-repeat center/75% url(./images/meetup.svg) 
