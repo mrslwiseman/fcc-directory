@@ -14,9 +14,18 @@ body {
 h1 {
   margin: 2rem 0;
 }
-@media screen and (min-width: 600px) {
-  main {
-    margin: 0 auto;
+.directory {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+@supports (display: grid) {
+  .directory {
+    display: -ms-grid;
+    display: grid;
+    grid-auto-rows: auto;
   }
 }
 @media (min-width: 600px) {
@@ -25,8 +34,8 @@ h1 {
   }
   .m {
     -webkit-box-flex: 1;
-        -ms-flex: 1 1 40%;
-            flex: 1 1 40%;
+        -ms-flex: 1 0 40%;
+            flex: 1 0 40%;
   }
 }
 @media (min-width: 800px) {
@@ -39,20 +48,11 @@ h1 {
     grid-template-columns: repeat(4, 1fr);
   }
   .m {
+    max-width: 400px;
     -webkit-box-flex: 1;
-        -ms-flex: 1 1 25%;
-            flex: 1 1 25%;
+        -ms-flex: 1 1 20%;
+            flex: 1 1 20%;
   }
-}
-.directory {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  display: -ms-grid;
-  display: grid;
-  grid-auto-rows: auto;
 }
 .m {
   margin: 40px 10px;
@@ -103,7 +103,7 @@ h1 {
   margin: 0 5px;
 }
 .m__connect {
-  margin: 2.25rem 0;
+  margin: 1rem 0;
 }
 .m__bio {
   font-size: 0.9rem;
@@ -124,7 +124,8 @@ h1 {
 .m__connect a {
   -webkit-transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 2.275);
   transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 2.275);
-  padding: 20px;
+  padding: 1.5rem;
+  margin: 0 0.5rem;
   display: inline-block;
 }
 .m__connect a:hover {
