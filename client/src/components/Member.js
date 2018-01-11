@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 
 const Member = (props) => {
-    const { chosen_name: first, last_name: last, picture, location, bio, stack, connect, joined } = props
+    const { chosen_name: first, last_name: last, picture, location, bio, stack, connect, joined } = props.member
     return (
         <div className="m">
             {picture &&
@@ -50,7 +51,7 @@ const Member = (props) => {
                     <p className="m__joined">Joined {joined}</p>
                 </div>
             }
-
+            <Link to={{pathname: "/edit", member: {...props.member}}} onClick={() => props.editMember(props.member)}>Edit</Link>
 
         </div>
     )

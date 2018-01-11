@@ -6,6 +6,7 @@ import Home from './Home';
 import Directory from './Directory';
 import NotFound from './NotFound';
 import Add from './Add'
+import Edit from './Edit'
 
 
 class App extends Component {
@@ -58,6 +59,9 @@ addMember = (newMember) => {
     this.setState({members: newState})
     
 }
+editMember = (memberToEdit) => {
+    console.log(memberToEdit);
+}
 
 render() {
     return (
@@ -67,8 +71,21 @@ render() {
             <main>
                 <Switch>
                     <Route exact path="/" component={Home} />
-                    <Route path="/directory" render={() => ( <Directory members={this.state.members} getMembers={this.getMembers}/>)}/>
-                    <Route path="/add" render={() => ( <Add addMember={this.addMember}/>)}/>
+                    <Route 
+                    path="/directory" 
+                    render={() => ( 
+                        <Directory 
+                            members={this.state.members} 
+                            editMember = {this.editMember} 
+                            getMembers={this.getMembers}/>)}/>
+                    <Route 
+                        path="/add" 
+                        render={() => ( 
+                            <Add addMember={this.addMember}/>)}/>
+                    <Route 
+                        path="/edit" 
+                        render={() => ( 
+                            <Edit location={this.props.location}/>)}/>
                     <Route component={NotFound} />
                 </Switch>
             </main>

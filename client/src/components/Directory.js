@@ -8,8 +8,9 @@ class Directory extends Component {
     componentWillMount() {
         this.props.getMembers();
     }
+    
     render() {
-        const { members } = this.props;
+        const { members, editMember } = this.props;
         return (
             <div>
                 <h1>Free Code Camp Melbourne | Directory:</h1>
@@ -25,7 +26,7 @@ class Directory extends Component {
                         transitionLeaveTimeout={500}>
                         {
                             members.map((member, i) => (
-                                <Member key={i} {...member} />
+                                <Member key={i} member={member} editMember={editMember}/>
                             ))
                         }
                     </ReactCSSTransitionGroup>
