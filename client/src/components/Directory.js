@@ -1,33 +1,49 @@
 import React, { Component } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import Member from './Member';
+import MemberLoader from './MemberLoader';
 
-export default class Directory extends Component {
+class Directory extends Component {
+    componentWillMount() {
+        this.props.getMembers();
+    }
     render() {
-
-        const sampleMember = {
-            chosen_name: "Matt",
-            last_name: "Wiseman",
-            location: "Preston",
-            picture: "./images/image.jpg",
-            bio: "Partial reference works similar to the parent reference, but while parent reference contains the whole selector, partial selectors contain only the first merged N levels of the nested selectors, so you could access those nesting levels individually.",
-            stack: "Mongo,Express,React,Node.js",
-            connect: {
-                email: "mrslwiseman@gmail.com",
-                fcc: "mrslwiseman",
-                github: "mrslwiseman",
-                meetup: "mrslwiseman"
-            },
-            joined: "April 2017"
-        }
-
+        const { members } = this.props;
         return (
             <div>
-            <h1>Free Code Camp Melbourne | Directory:</h1>
-            <div className="directory">
-                {/* for each of members in members prop render out: <Member /> */}
-                    <Member {...sampleMember}/>
-                </div>
+                <h1>Free Code Camp Melbourne | Directory:</h1>
+
+
+
+                    <ReactCSSTransitionGroup
+                        component="div"
+                        className="directory"
+                        transitionName="member"
+                        transitionEnterTimeout={500}
+                        transitionLeaveTimeout={500}>
+                        {
+                            members.map((member, i) => (
+                                <Member key={i} {...member} />
+                            ))
+                        }
+                    </ReactCSSTransitionGroup>
+
+
+                    {
+                        !members.length > 0 &&
+                        <div className="directory">
+                            <MemberLoader />
+                        </div>
+
+                    }
+
+
+
             </div>
+
         )
     }
 }
+
+
+export default Directory;

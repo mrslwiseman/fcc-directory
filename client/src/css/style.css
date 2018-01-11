@@ -1,3 +1,116 @@
+.m--loading {
+  margin: 40px 10px;
+  position: relative;
+  padding: 2rem 1rem !important;
+  background-image: linear-gradient(-20deg, #5a5edf 24%, #3e8ed7 100%);
+  -webkit-box-shadow: 0 2px 18px 0 rgba(0,0,0,0.09);
+          box-shadow: 0 2px 18px 0 rgba(0,0,0,0.09);
+}
+.m--loading .m__img {
+  background: rgba(255,255,255,0.035);
+  border: none;
+  margin-top: -60px;
+}
+.m--loading .m__name {
+  height: 20px;
+  width: 50%;
+  background: rgba(255,255,255,0.035);
+  margin: 1.2em auto;
+}
+.m--loading .m__stack {
+  height: 20px;
+  width: 70%;
+  margin: 1.2em auto;
+  background: rgba(255,255,255,0.035);
+}
+.m--loading .m__location {
+  height: 20px;
+  width: 40%;
+  background: rgba(255,255,255,0.035);
+  margin: 1.2em auto;
+}
+.m--loading .m__location:before {
+  display: none;
+  background: none;
+}
+.m--loading .m__bio {
+  padding-bottom: 2rem;
+}
+.m--loading .m__bio div {
+  height: 15px;
+  margin: 5px auto;
+  background: rgba(255,255,255,0.035);
+}
+.m--loading .m__bio div:nth-child(1) {
+  width: 70%;
+}
+.m--loading .m__bio div:nth-child(2) {
+  width: 90%;
+}
+.m--loading .m__bio div:nth-child(3) {
+  width: 50%;
+}
+.m--loading .m__bio div:nth-child(4) {
+  width: 70%;
+}
+.m__connect div {
+  height: 40px;
+  width: 40px;
+  display: inline-block;
+  margin: 0.8rem;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  -webkit-animation-name: bounce;
+          animation-name: bounce;
+  -webkit-animation-duration: 0.9s;
+          animation-duration: 0.9s;
+  -webkit-animation-timing-function: cubic-bezier(0.18, 0.89, 0.32, 1.28);
+          animation-timing-function: cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: normal;
+          animation-direction: normal;
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+.m__connect div:nth-child(2) {
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s;
+}
+.m__connect div:nth-child(3) {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+@-webkit-keyframes bounce {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
+@keyframes bounce {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -6,13 +119,25 @@
   font-family: rubikregular;
   src: url("./fonts/rubikregular.woff");
 }
+html,
 body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
   font-family: 'rubikregular', sans-serif;
   color: #fff;
   background-image: linear-gradient(-20deg, #575dde 0%, #3023ae 100%);
 }
 h1 {
   margin: 2rem 0;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+}
+nav a {
+  padding: 0 2rem;
 }
 .directory {
   display: -webkit-box;
@@ -110,6 +235,7 @@ h1 {
   text-shadow: 0 1px 1px rgba(0,0,0,0.5);
 }
 .m__joined {
+  font-style: italic;
   font-size: 0.8rem;
   margin: 1.5rem 0 1rem;
 }
@@ -143,4 +269,12 @@ h1 {
 }
 .m__meetup {
   background: no-repeat center/75% url("./images/meetup.svg");
+}
+.member-enter {
+  opacity: 0.01;
+}
+.member-enter.member-enter-active {
+  opacity: 1;
+  -webkit-transition: opacity 0.5s ease-in;
+  transition: opacity 0.5s ease-in;
 }
