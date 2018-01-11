@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import {Link} from 'react-router-dom';
 import Member from './Member';
 import MemberLoader from './MemberLoader';
 
@@ -12,6 +13,7 @@ class Directory extends Component {
         return (
             <div>
                 <h1>Free Code Camp Melbourne | Directory:</h1>
+                <Link to="/add">Add Your Profile</Link>
 
 
 

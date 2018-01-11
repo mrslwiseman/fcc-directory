@@ -5,7 +5,7 @@ import Nav from './Nav';
 import Home from './Home';
 import Directory from './Directory';
 import NotFound from './NotFound';
-
+import Add from './Add'
 
 
 class App extends Component {
@@ -47,11 +47,17 @@ getMembers = () => {
     }
     ]
     console.log('getting members');
+    this.state.members.length <= 0 && setTimeout(() => this.setState({members}), 2000)
     // this.setState({members})
-setTimeout(() => this.setState({members}), 2000)
 }
 
-
+addMember = (newMember) => {
+    console.log('adding member....');
+    const newState = this.state.members;
+    newState.push(newMember)
+    this.setState({members: newState})
+    
+}
 
 render() {
     return (
@@ -62,6 +68,7 @@ render() {
                 <Switch>
                     <Route exact path="/" component={Home} />
                     <Route path="/directory" render={() => ( <Directory members={this.state.members} getMembers={this.getMembers}/>)}/>
+                    <Route path="/add" render={() => ( <Add addMember={this.addMember}/>)}/>
                     <Route component={NotFound} />
                 </Switch>
             </main>

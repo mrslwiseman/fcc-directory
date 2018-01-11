@@ -278,3 +278,53 @@ nav a {
   -webkit-transition: opacity 0.5s ease-in;
   transition: opacity 0.5s ease-in;
 }
+form {
+  width: 600px;
+}
+.field {
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  position: relative;
+  margin-bottom: 2rem;
+}
+.input {
+  width: 100%;
+  font-size: 100%;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  height: 2rem;
+  line-height: 2rem;
+  border-bottom: 1px solid #eee;
+  color: #777;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+.input:focus {
+  outline: none;
+}
+.label {
+  -webkit-transition: all 0.3s cubic-bezier(0.58, 1.22, 0.73, 1.25);
+  transition: all 0.3s cubic-bezier(0.58, 1.22, 0.73, 1.25);
+  position: absolute;
+  height: 2rem;
+  line-height: 2rem;
+  bottom: 0;
+  left: 0;
+}
+.input:focus + .label,
+.input:valid + .label {
+  color: #ccc;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  font-size: 0.8rem;
+}
+.fade-enter {
+  opacity: 0;
+  z-index: 1;
+}
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  -webkit-transition: opacity 250ms ease-in;
+  transition: opacity 250ms ease-in;
+}
