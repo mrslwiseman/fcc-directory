@@ -25,8 +25,8 @@ class Directory extends Component {
                         transitionEnterTimeout={500}
                         transitionLeaveTimeout={500}>
                         {
-                            members.map((member, i) => (
-                                <Member key={i} member={member} editMember={editMember}/>
+                            Object.keys(members).map((key) => (
+                                <Member key={key} member={members[key]} id={key} />
                             ))
                         }
                     </ReactCSSTransitionGroup>

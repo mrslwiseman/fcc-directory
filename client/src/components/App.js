@@ -13,12 +13,13 @@ class App extends Component {
 constructor(props){
     super(props);
     this.state = {
-        members: []
+        members: {}
     }
 }
 
 getMembers = () => {
-    const members = [{
+    const members = {
+       "01": {
         chosen_name: "Matt",
         last_name: "Wiseman",
         location: "Preston",
@@ -33,7 +34,7 @@ getMembers = () => {
         },
         joined: "April 2017"
     },
-    {
+    "02": {
         chosen_name: "Matt",
         last_name: "Wiseman",
         location: "Preston",
@@ -45,10 +46,10 @@ getMembers = () => {
             meetup: "mrslwiseman"
         },
         joined: "April 2017"
-    }
-    ]
+    }}
+    
     console.log('getting members');
-    this.state.members.length <= 0 && setTimeout(() => this.setState({members}), 2000)
+    setTimeout(() => this.setState({members}), 1500)
     // this.setState({members})
 }
 
