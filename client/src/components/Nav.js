@@ -6,8 +6,9 @@ const Nav = () =>  (
                 Logo
                 <nav>
                     <Link to="/">Home</Link>
-                    <Link to="/directory">Directory</Link>
+                    <Link to="/members">Directory</Link>
                     <Link to="/login">Login</Link>
+                    <Link to="/members/add">Add</Link>
                 </nav>
             </div>
         )

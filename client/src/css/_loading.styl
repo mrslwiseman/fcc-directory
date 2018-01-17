@@ -1,0 +1,86 @@
+
+.m--loading
+    margin 40px 10px
+    position relative
+    padding 2rem 1rem !important
+    background-image linear-gradient(-20deg, #5A5EDF 24%, #3E8ED7 100%)
+    box-shadow 0 2px 18px 0 rgba(0,0,0,0.09)
+
+    .m__img
+        background:rgba(255, 255, 255, 0.035)
+        border none
+        margin-top -60px
+    .m__name
+        height 20px
+        width: 50%
+        background:rgba(255, 255, 255, 0.035)
+        margin 1.2em auto        
+
+    .m__stack
+        height 20px
+        width: 70%
+        margin 1.2em auto        
+        
+        background:rgba(255, 255, 255, 0.035)
+
+    .m__location
+        height 20px
+        width: 40%
+        background:rgba(255, 255, 255, 0.035)
+        margin 1.2em auto  
+        &:before
+            display none
+            background none
+
+
+    .m__bio 
+        padding-bottom 2rem
+        div
+            height 15px
+            margin 5px auto
+            background:rgba(255, 255, 255, 0.035)
+        div:nth-child(1)
+            width 70%
+        div:nth-child(2)
+            width 90%
+        div:nth-child(3)
+            width 50%
+        div:nth-child(4)
+            width 70%
+
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0)
+    }
+    50% {
+        transform: translateY(-10px)
+    }
+    100% {
+        transform: translateY(0px)
+    }
+}
+
+    .m__connect 
+        div
+            height 40px
+            width 40px
+            display inline-block
+            margin .8rem
+            border-radius 50%
+            background:rgba(255, 255, 255, 0.25)
+            animation-name: bounce
+            animation-duration: .9s
+            animation-timing-function: cubic-bezier(0.18, 0.89, 0.32, 1.28)
+            animation-delay: 0s
+            animation-iteration-count: infinite
+            animation-direction:normal
+            animation-play-state: running
+        div:nth-child(2)
+            animation-delay: .1s
+        div:nth-child(3)
+            animation-delay: .2s
+
+
+
+    

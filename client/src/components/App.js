@@ -73,20 +73,22 @@ render() {
                 <Switch>
                     <Route exact path="/" component={Home} />
                     <Route 
-                    path="/directory" 
+                    exact path="/members" 
                     render={() => ( 
                         <Directory 
                             members={this.state.members} 
                             editMember = {this.editMember} 
                             getMembers={this.getMembers}/>)}/>
                     <Route 
-                        path="/add" 
+                        exact path="/members/add" 
                         render={() => ( 
                             <Add addMember={this.addMember}/>)}/>
                     <Route 
-                        path="/edit" 
+                        exact path="/members/:id/edit" 
                         render={() => ( 
-                            <Edit location={this.props.location}/>)}/>
+                            <Edit 
+                            members={this.state.members} 
+                            />)}/>
                     <Route component={NotFound} />
                 </Switch>
             </main>

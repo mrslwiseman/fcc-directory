@@ -14,7 +14,7 @@ class Directory extends Component {
         return (
             <div>
                 <h1>Free Code Camp Melbourne | Directory:</h1>
-                <Link to="/add">Add Your Profile</Link>
+                <Link to="/members/add">Add Your Profile</Link>
 
 
 

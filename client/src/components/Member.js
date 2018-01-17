@@ -51,7 +51,7 @@ const Member = (props) => {
                     <p className="m__joined">Joined {joined}</p>
                 </div>
             }
-            <Link to={{pathname: "/edit", member: {...props.member}}} onClick={() => props.editMember(props.member)}>Edit</Link>
+            <Link to={{pathname: `/members/${props.id}/edit`}}>Edit</Link>
 
         </div>
     )
